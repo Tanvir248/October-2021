@@ -1,0 +1,52 @@
+1. Banker algorithm used to avoid deadlock and allocate resources safely to each process in the computer system.
+2. Banker algorithm also helps the operating system to successfully share the resources between all the processes. 
+3. The banker's algorithm is named because it checks whether a person should be sanctioned a loan amount or not to help the bank system safely simulate allocation resources.
+4. It contains various resources that meet the requirements of each process.
+5. It helps the operating system manage and control process requests for each type of resource in the computer system.
+
+           Banker safely algorithm :
+1. There are two vectors Wok and Finish of length m and n in a safety algorithm.
+
+Initialize: Work = Available
+Finish[i] = false; for I = 0, 1, 2, 3, 4… n - 1.
+
+2. Check the availability status for each type of resources [i], such as:
+
+Need[i] <= Work
+Finish[i] == false
+If the i does not exist, go to step 4.
+
+3. Work = Work +Allocation(i) // to get new resource allocation
+
+Finish[i] = true
+
+Go to step 2 to check the status of resource availability for the next process.
+
+4. If Finish[i] == true; it means that the system is safe for all processes.Resource-Request Algorithm :
+                    Resource Request Algorithm
+ A resource request algorithm checks how a system will behave when a process makes each type of resource request in a system as a request matrix.
+1. When the number of requested resources of each type is less than the Need resources, go to step 2 and if the condition fails, which means that the process P[i] exceeds its maximum claim for the resource. As the expression suggests:
+
+If Request(i) <= Need
+Go to step 2;
+
+2. And when the number of requested resources of each type is less than the available resource for each process, go to step (3). As the expression suggests:
+
+If Request(i) <= Available
+Else Process P[i] must wait for the resource since it is not available for use.
+
+3. When the requested resource is allocated to the process by changing state:
+
+Available = Available - Request
+Allocation(i) = Allocation(i) + Request (i)
+Needi = Needi - Requesti
+r1->p1,
+ p1->r2,
+ r2->p2,
+ p2->r3,
+ r3->p3,
+ p3->r4,
+ r4->p4,
+ p4->r5,
+ r5->p5,
+ p5->r1.
